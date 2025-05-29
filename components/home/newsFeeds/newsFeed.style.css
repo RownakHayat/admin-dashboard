@@ -1,0 +1,31 @@
+.arrow_icon{
+    transition: 0.3s ease-in;
+    position: absolute;
+    right: 5%;
+    opacity: 0;
+    width: 25px;
+    height: 25px;
+}
+.card_box{
+    position: relative;
+    transition: 0.3s ease-in-out;
+}
+.card_box:hover .arrow_icon{
+    display: block;
+    position: absolute;
+    right: 4%;
+    transform: translate(5%, -3%);
+    opacity: 0.9;
+}
+.facebook_image {
+    height: auto;
+  }
+  .facebook_feed iframe{
+    width: 100% !important; 
+    height: 350px;
+  }
+  @media (min-width: 1400px) {
+    .facebook_image {
+      height: 340px; 
+    }
+  }

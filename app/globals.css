@@ -1,26 +1,390 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* dashboard card css */
+/* .smeCardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: start;
+}
+.smeCard {
+  flex: 1 0 140px;
+  max-width: 370px;
+} */
+/* === */
+
+.slideC {
+  position: relative;
+  /* perspective: 100%; */
+  /* transform-style: preserve-3d; */
+  /* width: 100%;
+  height: auto; */
+  margin: 0 auto;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.slide {
+  width: 100%;
+  height: auto;
+  /* transition: transform 500ms ease 0s, opacity 500ms ease 0s,
+    visibility 500ms ease 0s; */
+  position: absolute;
+  top: 0;
+  border-radius: 12px;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  animation-duration: 2s;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.custom_container {
+  width: 75%;
+  margin: 0 auto;
+}
+@media (max-width: 390px) {
+  .custom_container {
+    width: 95% !important;
+    margin: 0 8px;
   }
 }
 
+.smeIDPlaceHolder {
+  padding-left: 35px;
+}
+#homeSlider .css-1fzpoyk {
+  transform: none !important;
+  left: auto !important;
+  opacity: auto !important;
+  z-index: auto !important;
+  top: 0 !important;
+}
+.sliderContainer{
+  width: "100%";
+  height: "507px";
+  margin: "0 auto";
+  position: "relative";
+}
+.custom-scrollbar::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #c2c2c2;
+  border-radius: 50px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #c2c2c2;
+}
+.slider-carousel {
+  transform: translateY(-2%) translateX(10%) scale(1.4);
+  left: 0%;
+  opacity: 1.9;
+  z-index: 0;
+  width: 80%;
+}
+
+/* .slider2-carousel{
+
+} */
+
+/* 3D reflection effect */
+.reflection {
+  position: absolute;
+  width: 100%;
+  height: 60px;
+  bottom: -60px;
+  border-radius: 12px;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  animation-delay: 0.5s;
+  animation-play-state: running;
+  transition: transform 500ms ease 0s, opacity 500ms ease 0s,
+    visibility 500ms ease 0s;
+}
+
+/* slider second */
+/* .child-menu-button:hover,
+.child-menu-button:active {
+  background: green !important;
+  color: white !important;
+} */
+
+/* a.ps-menu-button:hover ~ a.ps-menu-button.span.span.svg
+path {
+  color: white;
+} */
+@font-face {
+  font-family: "ruposhiBangla";
+  src: url("/banglaFont/RuposhiBangla/Ruposhi Bangla.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "ruposhiBangla", sans-serif;
+}
+.homeBtn {
+  text-decoration: none;
+  letter-spacing: -0.05em;
+  background-color: #36847b;
+  /* color: #9ac1bd; */
+  /* box-shadow: #9ac1bd; */
+  transition: all 0.3s;
+  box-shadow: 0 0.1em;
+}
+.menuIcon {
+  display: inline-block;
+  filter: invert(100%) sepia(0%) saturate(6132%) hue-rotate(344deg)
+    brightness(122%) contrast(95%);
+}
+.configurIcon {
+  display: inline-block;
+  filter: invert(99%) sepia(100%) saturate(1%) hue-rotate(12deg)
+    brightness(105%) contrast(101%);
+}
+.messageIcon {
+  display: inline-block;
+  filter: invert(55%) sepia(100%) saturate(1%) hue-rotate(12deg)
+    brightness(105%) contrast(101%);
+}
+.settingIcons {
+  display: inline-block;
+  filter: invert(55%) sepia(100%) saturate(1%) hue-rotate(12deg)
+    brightness(105%) contrast(101%);
+}
+.sidebarMessage {
+  display: inline-block;
+  filter: invert(55%) sepia(100%) saturate(1%) hue-rotate(12deg)
+    brightness(105%) contrast(101%);
+}
+
+.trainingIcon,
+.melaIcon,
+.kormoshalaIcon,
+.matchMakingIcon,
+.othersIcon {
+  display: inline-block;
+  filter: invert(99%) sepia(100%) saturate(1%) hue-rotate(12deg)
+    brightness(105%) contrast(101%);
+}
+.ps-menu-button:hover {
+  background-color: #206c6b !important;
+  color: white !important;
+  border-radius: 12px;
+}
+
+ol > li > ol > li > ol,
+.subPermissionCheckBox {
+  display: flex;
+}
+
+.progressMainDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+}
+.progress {
+  position: relative; /* with scale */
+  height: 20px;
+  width: 100%;
+  background-color: rgb(233, 236, 239);
+  border: 1px solid #c5c5c5;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.progress div {
+  background-color: #00c251;
+  color: #fff;
+  height: 100%;
+  text-align: center;
+}
+
+.progress span {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+}
+
+/* 2nd new slider start */
+.secondSliderDetails {
+  position: relative;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  width: 662px;
+  height: 272px;
+  /* margin-bottom: 150px !important; */
+  /* margin-top: 50px; */
+  margin: 0 auto;
+}
+.secondSliderC {
+  position: relative;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  width: 662px;
+  height: 272px;
+  /* margin-bottom: 150px !important; */
+  /* margin-top: 50px; */
+  margin: 0 auto;
+}
+
+.secondSlider {
+  width: 700px;
+  height: 400px;
+  transition: transform 500ms ease 0s, opacity 500ms ease 0s,
+    visibility 500ms ease 0s;
+  position: absolute;
+  top: 0;
+  border-radius: 12px;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 0 0 12px 12px;
+}
+
+/* 3D reflection effect */
+.reflection {
+  position: absolute;
+  width: 100%;
+  height: 60px;
+  bottom: -60px;
+  border-radius: 12px;
+  transition: transform 500ms ease 0s, opacity 500ms ease 0s,
+    visibility 500ms ease 0s;
+}
+
+.sliderContent {
+  display: flex;
+  color: white;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+/* normal css  */
+
+.btns .btn {
+  cursor: pointer;
+}
+
+.btns .btn:last-child {
+  margin-left: 40px;
+}
+
+/* normal css  */
+
+.btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Space between buttons and slide number */
+  padding-top: 100px;
+}
+
+.slideNumber {
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.text-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* 2nd new slider end */
+
+@layer base {
+  h2 {
+    @apply font-bold;
+  }
+
+  h3 {
+    @apply font-semibold;
+  }
+  h5 {
+    @apply font-sans
+            text-sm;
+  }
+
+  a {
+    text-decoration: none !important;
+    @apply no-underline;
+  }
+
+  a:link {
+    text-decoration: none;
+  }
+
+  body {
+    background-color: #f5f3fa;
+  }
+}
+
+@media print {
+  /* Hide overflow scroll on all elements */
+  * {
+    overflow: visible !important;
+    @apply px-1;
+  }
+}
+
+.datepicker {
+  @apply w-full;
+}
+
+@media (max-width: 480px) {
+  .sliderFirstImg {
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .secondSliderC {
+    perspective: 0px !important;
+    width: 0px !important;
+  }
+}
+@media (max-width: 768px) {
+  .secondSliderC {
+    perspective: 0px !important;
+    width: 295px !important;
+  }
+}
+@media (max-width: 1024px) {
+  .secondSliderC {
+    perspective: 600px;
+    transform-style: preserve-3d;
+    width: 320px !important;
+  }
+
+  .secondSlider {
+    width: 300px !important;
+  }
+}
+@media (max-width: 1366px) {
+  .secondSliderC {
+    width: 500px;
+  }
+
+  .secondSlider {
+    width: 500px;
+  }
 }
