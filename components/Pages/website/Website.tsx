@@ -18,6 +18,8 @@ import SignUpForm from '../Auth/SignUp/signupForm';
 import CatagoryEvent from './catagoryWiseEvent/catagoryEvent';
 import CoverSlide from './sliderTwo/coverSlide';
 import { ReactSpring3dCarousel } from './sliderTwo/slider';
+import LoginForm from '../Auth/LogIn/loginForm';
+import LoginUpForm from '../Auth/LogIn/LoginUpForm';
 
 export const formSchema = z.object({
   id: z.string().min(1, { message: "This field is required" }),
@@ -135,9 +137,10 @@ const Website = () => {
                   )}
                   <div className="rounded">
                     {!isRegistering ? (
-                      <SignInForm setIsRegistering={setIsRegistering} eventId={null} />
+                      // <SignInForm setIsRegistering={setIsRegistering} eventId={null} />
+                      <LoginForm setIsRegistering={setIsRegistering}  />
                     ) : (
-                      <SignUpForm setIsRegistering={setIsRegistering} eventId={null} />
+                      <LoginUpForm setIsRegistering={setIsRegistering}  />
                     )}
                   </div>
                 </div>

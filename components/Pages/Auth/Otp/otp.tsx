@@ -9,6 +9,7 @@ import { useOtpRegistrationMutation, useOtpResendMutation } from "@/store/featur
 import { zodResolver } from "@hookform/resolvers/zod";
 import SignInForm from "../SignIn/signInForm";
 import { OtpSchema } from "./schemas/otpSchema";
+import LoginForm from "../LogIn/loginForm";
 
 type OtpVerificationProps = {
   otp: string;
@@ -162,7 +163,8 @@ const OtpVerification: React.FC<OtpVerificationProps> = ({ otp: initialOtp, mobi
               </div>
             </>
         ) : (
-            <SignInForm setIsRegistering={setIsRegistering} eventId={eventId}/>
+            // <SignInForm setIsRegistering={setIsRegistering} eventId={eventId}/>
+            <LoginForm setIsRegistering={setIsRegistering}/>
         )}
       </div>
   );

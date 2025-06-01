@@ -25,9 +25,17 @@ interface InputFieldProps {
   value?: any;
 }
 
-type FormInputSignupProps = {
+// type FormInputSignupProps = {
+//   name: string;
+// } & InputFieldProps;
+
+
+interface FormInputSignupProps extends InputFieldProps {
   name: string;
-} & InputFieldProps;
+  isPasswordVisible?: boolean;               // ✅ add this
+  toggleVisibility?: () => void;             // ✅ and this
+}
+
 
 const FormInputPassword: FC<FormInputSignupProps> = ({
   name,
@@ -94,7 +102,7 @@ const FormInputPassword: FC<FormInputSignupProps> = ({
                 <Input
                   {...field}
                   {...otherProps}
-                  type={isPasswordVisible ? "text" : "password"}
+                  type={(otherProps.isPasswordVisible ?? isPasswordVisible) ? "text" : "password"}
                   className={cn(
                     "bg-white border-[1px] rounded-md outline-none px-2 pr-10",
                     isInvalid ? "border-red-500" : "border-[#cccccc]",
@@ -102,12 +110,22 @@ const FormInputPassword: FC<FormInputSignupProps> = ({
                   )}
                   onChange={bengaliAllow ? field.onChange : handleChange}
                 />
-                <span
+                {/* <span
                   className="cursor-pointer absolute top-1/2 right-3 transform -translate-y-1/2"
                   onClick={() => setIsPasswordVisible(!isPasswordVisible)}
                 >
                   {isPasswordVisible ?  <Eye /> : <EyeOff /> }
-                </span>
+                </span> */}
+                <span
+  className="cursor-pointer absolute top-1/2 right-3 transform -translate-y-1/2"
+  onClick={otherProps.toggleVisibility ?? (() => setIsPasswordVisible(!isPasswordVisible))}
+>
+  {(otherProps.isPasswordVisible ?? isPasswordVisible) ? <Eye /> : <EyeOff />}
+</span>
+
+
+
+
               </div>
             </FormControl>
             {remark && (
