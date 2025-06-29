@@ -1,14 +1,17 @@
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { initializeApp, getApp, getApps } from "firebase/app";
+// import { getAnalytics } from "firebase/analytics";
 import { siteConfig } from "@/config/site"; // adjust path as needed
+import { getAuth } from "firebase/auth";
 
-// Use Firebase config from siteConfig
 const firebaseConfig = siteConfig.envConfig.firebase;
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+// Prevent multiple initializations (important in dev with HMR)
+const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 
-// Initialize Analytics only in browser environment
-const analytics = typeof window !== "undefined" ? getAnalytics(app) : null;
+// Initialize Analytics only on client
+// const analytics = typeof window !== "undefined" ? getAnalytics(app) : null;
+// const app !getApps().length ? initializeApp(firebaseConfig) : getApp()
+const auth = getAuth(app)
 
-export { app, analytics };
+
+export { app, auth };
